@@ -1,0 +1,1 @@
+//apartado para agregar funciones personalizadas en javascript en la relación del componente padre page con el hijo header contenido

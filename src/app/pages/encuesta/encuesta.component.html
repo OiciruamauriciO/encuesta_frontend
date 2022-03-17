@@ -1,0 +1,32 @@
+<div class="complete">
+    <div class="container">
+        <div class="abs-center">
+            <form>
+                <div class="form-group">
+                    <div class="topBottom"><h2>ENCUESTA</h2></div>
+                    <div class="topBottom"><p>ESTILO MUSICAL</p></div>
+                </div>
+                <div id="seleccionestilo" class="seleccionestilo">  
+                    <select [(ngModel)]='estiloInput' class="form-control" name="selectOption" id="selectOption">
+                        <option *ngFor="let opt of ngOptions" [selected]="opt === ngDropdown" [value]="opt" [ngValue]="opt">
+                          {{ opt }}
+                        </option>
+                      </select>
+                </div>
+                <div class="topBottom">
+                    <div class="form-group">
+                        <label for="correoElectronico"><p>Correo electrónico</p></label>
+                        <input [(ngModel)]='correoInput' type="email" class="form-control" id="correoElectronico" name="correoElectronico" aria-describedby="ayudaCorreo" placeholder="Ingresa tu correo">
+                        <small id="ayudaCorreo" class="colorText">No compartiremos tu correo con nadie más</small>
+                    </div>          
+                </div>   
+                <div class="abs-center-bottom">    
+                    <div class="topBottom">
+                        <button type="submit" class="btn btn-primary btn-light" (click)="saveEncuesta()">Votar</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

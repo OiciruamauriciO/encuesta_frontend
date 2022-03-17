@@ -1,0 +1,65 @@
+p {
+    text-align: center;
+    color: var(--white-color);   
+}
+
+h2 {
+   text-align: center;
+   color: var(--white-color);   
+}
+
+.complete {
+    background-color:  var(--blue-principal-color);
+}
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.abs-center-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.form {
+    width: 450px;
+}
+
+.seleccionestilo {
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 2.5%;
+}
+
+.topBottom {
+    margin-top: 5%;
+    margin-bottom: 2.5%;
+}
+
+.colorText {
+    color: var(--white-color);
+}
+
+button {
+    text-align: center;
+    width: 225px;
+    color: var(--blue-principal-color);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: var(--yellow-principal-color);
+    border: 0ch;
+}
+
+.form-control{
+    padding: 5px 10px;
+    background-color: var(--red-principal-color);
+    color: var(--white-color);   
+    border: 0ch;
+}
+
+option{
+    color: var(--white-color);   
+}

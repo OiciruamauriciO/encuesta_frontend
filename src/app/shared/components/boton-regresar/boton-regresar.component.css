@@ -1,0 +1,6 @@
+.colorBotonRegresar {
+    color: var(--green-principal-color);
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}    

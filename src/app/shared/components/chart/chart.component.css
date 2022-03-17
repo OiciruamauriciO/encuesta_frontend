@@ -1,0 +1,15 @@
+.tituloGrafico {
+    color: var(--white-color);
+    text-align: center;
+}
+.rotarGrafico {
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+}
+
+.highcharts-point-hover{
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+}

@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url('./assets/fonts/OpenSans/OpenSans-Bold.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    src: url('./assets/fonts/OpenSans/OpenSans-SemiBold.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('./assets/fonts/OpenSans/OpenSans-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    src: url('./assets/fonts/OpenSans/OpenSans-SemiBold.ttf') format('truetype');
+}
+
+
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --yellow-principal-color: #ecbc04;
+    --blue-principal-color: #5854B4;
+    --blue-color-10percent: #6965bc;
+    --yellow-color-20percent: #f3c93d;
+    --red-principal-color: #b4549d;
+    --green-principal-color: #0cf04a;
+    --dark-blue-color: #2e2c5f;
+    --white-color: #ffffff;
+    --black-color: #000000;
+
+    --titulo-font: 'OpenSans-SemiBold';
+    --titulo-size: 18px;
+    --tiulo-size-dos: 16px;
+    --texto-size: 14px;
+    --label-size: 12px;
+}
+
+body {
+    background-color: var(--grey-principal-color);   
+}
