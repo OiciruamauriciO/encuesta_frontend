@@ -28,15 +28,12 @@ export class EncuestaServiceService {
   } 
 
   getEncuestas(): Observable<EncuestaInterface> {
-    console.log('[EncuestaServiceService][getEncuestas] Inicio'); 
     return this.http.get(this.fullPathEncuestas).pipe((response) => response, (error: any) => error);
   }     
 
   async postNewEncuesta(encuestaToPostInterface: EncuestaToPostInterface): Promise<Observable<any>>{
-    console.log('[EncuestaServiceService][postNewEncuesta] Inicio');  
       
-    let body = JSON.stringify(encuestaToPostInterface);   
-    console.log(body); 
+    let body = JSON.stringify(encuestaToPostInterface);    
     let parametros = new HttpParams();
     const opciones = {
       headers: new HttpHeaders({
@@ -49,9 +46,6 @@ export class EncuestaServiceService {
   }
 
   async updateVotoEstilo(idEstilo: number): Promise<Observable<any>>{
-    console.log('[EncuestaServiceService][updateVotoEstilo] Inicio');  
-    console.log("IDESTILO EN PASO DE VARIABLE POR REFERENCIA en método udpateVotoEstilo");
-    console.log(idEstilo);  
     let body = "";
     const parametros = new HttpParams()
     .set('estilo', idEstilo);
@@ -61,18 +55,14 @@ export class EncuestaServiceService {
       }),
       params: parametros
     };
-    console.log("VALOR DE LAS OPCIONES DE LLAMADA POST YA INICIALIZADO");
-    console.log(opciones);
     return this.http.post<any>(this.fullPathVotoEstilo, body, opciones);
   } 
 
   getIdEncuestaUltimo(): Observable<MaxIdEncuestaInterface> {
-    console.log('[EncuestaServiceService][getIdEncuestaUltimo] Inicio');
     return this.http.get("http://localhost:8084/api/encuestas/idultimo").pipe((response: any) => response, (error: any) => error);
   }     
 
-  async insertIntoEncuestaEstiloDirecto(aEncuesta: number, aEstilo: number): Promise<Observable<any>>{
-    console.log('[EncuestaServiceService][insertIntoEncuestaEstiloDirecto] Inicio');  
+  async insertIntoEncuestaEstiloDirecto(aEncuesta: number, aEstilo: number): Promise<Observable<any>>{ 
       
     let body = "";
     const parametros = new HttpParams();

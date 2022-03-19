@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Resultadostodos } from '../../../core/interfaces/resultadostodos';
 import { ResultadosServicesService } from '../../../services/resultados-services.service';
@@ -10,7 +10,7 @@ import { ResultadosServicesService } from '../../../services/resultados-services
 })
 export class ChartComponent implements OnInit{
 
-  public title: String;
+  public title: string;
   public highcharts: any;
   public datoComunicar: Resultadostodos;
   public arregloObjetos: any[];
@@ -27,8 +27,6 @@ export class ChartComponent implements OnInit{
     this.arregloObjetos = [];
   }
   async ngOnInit() {
-
-    console.log('[ChartComponent][ngOnInit] Inicio');
     await (this.resultadoService.getEncuestas()).toPromise().then((response) => {
       if(response!=undefined){
         this.datoComunicar = response;
@@ -45,16 +43,15 @@ export class ChartComponent implements OnInit{
       // obj.hasOwnProperty() se usa para filtrar propiedades de la cadena de prototipos del objeto
       if (obj.hasOwnProperty(i)) {
         result += `${objName}.${i} = ${obj[i]}\n`;
-        console.log(obj[i]);
         this.arregloObjetos.push(obj[i]);
       }
     }
-    return result;
   }
   
 
   graficoBarrasResultadosEncuesta(paraGraficar: Resultadostodos) {
-    const result = this.desplegarObjetos(paraGraficar, 'paraGraficar'); 
+    
+    this.desplegarObjetos(paraGraficar, 'paraGraficar'); 
     
     this.highcharts.chart('resultadosGrafico', {
       chart: {

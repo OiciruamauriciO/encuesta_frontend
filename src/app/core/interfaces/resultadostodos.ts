@@ -1,6 +1,6 @@
 export interface Resultadostodos {
     data: [{
-        nombreEstilo: String,
+        nombreEstilo: string,
         totalVotosPorEstilo: number 
       },]
 }

@@ -1,6 +1,5 @@
-import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ResultadosServicesService } from '../../services/resultados-services.service';
-import { Resultadostodos } from '../../core/interfaces/resultadostodos';
 
 @Component({
   selector: 'app-resultados',
@@ -10,12 +9,11 @@ import { Resultadostodos } from '../../core/interfaces/resultadostodos';
     ResultadosServicesService
   ]
 })
-export class ResultadosComponent implements OnInit {
+export class ResultadosComponent {
 
-  constructor(private resultadoService: ResultadosServicesService) { 
+  public tituloResultados: string;
+
+  constructor( ) { 
+    this.tituloResultados = "";
   }  
-  ngOnInit() {  
-    console.log('[ResultadosComponent][ngOnInit] Inicio');
-  }
-
 }

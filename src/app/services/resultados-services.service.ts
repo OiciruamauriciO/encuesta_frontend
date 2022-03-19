@@ -15,13 +15,10 @@ export class ResultadosServicesService {
   fullPathResultadosTodos: string = '';
 
   constructor(private http: HttpClient) { 
-    console.log('[EncuestaServiceService] Constructor');
     this.fullPathResultadosTodos = `${environment.baseEndpoint}/${this.principalPath}/${this.subPath}`;
-    console.log(this.fullPathResultadosTodos);
   }
 
   getEncuestas(): Observable<Resultadostodos> {
-    console.log('[EncuestaServiceService][getEncuestas] Inicio'); 
     return this.http.get(this.fullPathResultadosTodos).pipe((response) => response, (error: any) => error);
   }  
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EncuestaServiceService } from '../../services/encuesta-service.service';
 import { EncuestaToPostInterface } from '../../core/interfaces/encuesta-to-post-interface';
 import { EncuestaInterface } from '../../core/interfaces/encuesta-interface';
@@ -12,7 +12,7 @@ import { MaxIdEncuestaInterface } from '../../core/interfaces/max-id-encuesta-in
     EncuestaServiceService
   ]
 })
-export class EncuestaComponent implements OnInit {  
+export class EncuestaComponent {  
 
   public ngOptions = ["","Rock","Pop","Jazz"];
   public ngDropdown = this.ngOptions[0];
@@ -63,58 +63,31 @@ export class EncuestaComponent implements OnInit {
     this.temporalEstilo = 0;
   }
 
-  ngOnInit() {  
-    console.log('[EncuestaComponent][ngOnInit] Inicio');
-  }
-
-  async saveEncuesta(){
-
-    console.log('[EncuestaComponent][saveEncuesta] Inicio');
-    console.log(this.ngOptions);
-    console.log(this.estiloInput);
-    console.log(this.correoInput);
-
-    if(this.estiloInput==="Rock"){
-      this.temporalEstilo = 1;
-    }else if(this.estiloInput==="Pop"){
-      this.temporalEstilo = 2;
-    }else if(this.estiloInput==="Jazz"){
-      this.temporalEstilo = 3;
-    }else{
-      this.estiloInput = "error";// forzaría un JSON parse error: Cannot deserialize value of type `int` from String "error"
-      this.temporalEstilo = -1;
-    }
-
-    this.newEncuesta.correo = this.correoInput;
-    this.newEncuesta.estilo = this.temporalEstilo;
-
+  async callPostEncuesta(){
     (await this.encuestaService.postNewEncuesta(this.newEncuesta)).subscribe((res: any) => {  
       this.resPost = res;            
-      this.booleanResPost==true;                       
+      this.booleanResPost = true;                       
     }, (e: any) => {
       this.ePost = e;
       this.booleanEPost = true;   
-    });           
+    });      
+  }
 
+  async callUpdateVotoEstilo() {
     (await this.encuestaService.updateVotoEstilo(this.temporalEstilo)).subscribe((res: any) => {  
       this.resUpdate = res;            
-      this.booleanResUpdate==true;         
-      console.log("VALOR DE LA VARIABLE this.temporalEstilo en la llamada del método this.encuestaService.update...");              
-      console.log(this.temporalEstilo);
-      console.log("VALOR DE LA VARIBLE this.resUpdate en la llamada del método this.encuestaService.update...");
-      console.log(this.resUpdate);
+      this.booleanResUpdate = true;
     }, (e: any) => {
       this.eUpdate = e;
-      this.booleanEUpdatePost = true;  
-      console.log("<-- ERROR ENCONTRADO en la llamada del método this.encuestaService.update..."); 
-      console.log(this.eUpdate);
+      this.booleanEUpdatePost = true; 
     });  
 
+  }
+
+  async callToEncuestaEstiloEntity() {
     (this.encuestaService.getEncuestas()).subscribe(async (response) => {
 
       if(response!=undefined){
-        console.log("VALOR DE LA RESPUESTA en la llamada al método this.encuestaService.getEncuestas...");
-        console.log(response);
         this.allEncuestas = response;
         this.responseConverted = JSON.stringify(this.allEncuestas);
         this.arregloresponseConverted=this.responseConverted.split(",");
@@ -134,7 +107,7 @@ export class EncuestaComponent implements OnInit {
 
             (await this.encuestaService.insertIntoEncuestaEstiloDirecto(this.idEncuestaUltimo, this.temporalEstilo)).subscribe((res: any) => {  
               this.resUpdate = res;            
-              this.booleanResUpdate==true;                       
+              this.booleanResUpdate = true;                       
             }, (e: any) => {
               this.eUpdate = e;
               this.booleanEUpdatePost = true;   
@@ -147,7 +120,31 @@ export class EncuestaComponent implements OnInit {
     }, (e: any) => {
       this.eGetEncuestasError = e;
       this.booleanErrorGetEncuestasPost = true;   
-    });          
+    });  
+  }
+
+  async saveEncuesta(){
+
+    if(this.estiloInput==="Rock"){
+      this.temporalEstilo = 1;
+    }else if(this.estiloInput==="Pop"){
+      this.temporalEstilo = 2;
+    }else if(this.estiloInput==="Jazz"){
+      this.temporalEstilo = 3;
+    }else{
+      this.estiloInput = "error";// forzaría un JSON parse error: Cannot deserialize value of type `int` from String "error"
+      this.temporalEstilo = -1;
+    }
+
+    this.newEncuesta.correo = this.correoInput;
+    this.newEncuesta.estilo = this.temporalEstilo;
+
+    this.callPostEncuesta();
+
+    this.callUpdateVotoEstilo();
+
+    this.callToEncuestaEstiloEntity();
+        
   }       
 
 }

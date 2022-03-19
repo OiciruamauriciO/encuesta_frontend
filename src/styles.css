@@ -31,8 +31,11 @@
     --yellow-color-20percent: #f3c93d;
     --red-principal-color: #b4549d;
     --green-principal-color: #0cf04a;
+    --green-secondary-color: #0bab35;
     --dark-blue-color: #2e2c5f;
     --white-color: #ffffff;
+    --grey-principal-color: #dce0d8;
+    --grey-dark-secondary-color: #848682;
     --black-color: #000000;
 
     --titulo-font: 'OpenSans-SemiBold';
