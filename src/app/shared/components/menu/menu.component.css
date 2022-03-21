@@ -1,6 +1,57 @@
 .colorBotonMenu {
-    color: var(--green-principal-color);
     float: left;
     margin-left: 20px;
     margin-top: 20px;
 }    
+
+.desplegadoMenu{
+    float: left;
+    margin-left: 0px;
+    margin-top: 0px;
+	height: 70px;
+}    
+
+.hide {
+    max-height: 0 !important;
+}
+
+.dropdown{
+	border: 0em;
+}
+
+.dropdown .title{
+	margin: 0em 0em 0em 0em;	
+	width: 100%;
+}
+
+.dropdown .menu{
+	transition: max-height .5s ease-out;
+	max-height: 20em;
+	overflow: hidden;
+}
+
+.dropdown .menu .option{
+	margin: 0em 0em 0em 0em;
+	margin-top: 0em;
+}
+
+.dropdown .menu .option:hover{
+	background: var(--yellow-principal-color);  
+}
+
+.pointerCursor:hover{
+	cursor: pointer;
+}
+
+.rotate-90{
+	transform: rotate(90deg);
+}
+.selectMenuOption{
+	background-color: var(--blue-principal-color);
+	margin-top: 9%;
+	position: inherit;
+	display: flex;
+	margin-bottom: 25px;
+	border: 0ch;
+	color: var(--grey-principal-color); 
+}

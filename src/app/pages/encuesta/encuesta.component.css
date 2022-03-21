@@ -63,3 +63,11 @@ button {
 option{
     color: var(--white-color);   
 }
+
+.mensajeVacios{
+    color: var(--alert);
+    background-color: var(--grey-principal-color);
+    border-radius: 2px;
+    text-align: center;
+    margin-top: 10px;
+}

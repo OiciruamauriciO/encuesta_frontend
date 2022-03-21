@@ -51,6 +51,7 @@ export class EncuestaComponent {
   public temporalSubElemento: any;
   public arregloSubElemento: any[] = [];
   public temporalEstilo: any;
+  public mensajeVacios: string;
 
   constructor(private encuestaService: EncuestaServiceService) { 
     this.correoInput = "";
@@ -61,6 +62,7 @@ export class EncuestaComponent {
     this.booleanEUpdatePost = false;
     this.idEncuestaUltimo = 0;
     this.temporalEstilo = 0;
+    this.mensajeVacios = " ";
   }
 
   async callPostEncuesta(){
@@ -124,6 +126,26 @@ export class EncuestaComponent {
   }
 
   async saveEncuesta(){
+    
+    if((this.estiloInput==="" || this.estiloInput===" ") && (this.correoInput==="" || this.correoInput===" ")){
+      this.mensajeVacios = "Los campos no pueden estar vacíos";
+    }else{
+      this.asignacionEstiloSegunEntrada();
+      this.callPostEncuesta();
+      this.callUpdateVotoEstilo();
+      this.callToEncuestaEstiloEntity();    
+      this.limpiarCamposFormulario();
+      this.mensajeVacios="";
+    }
+        
+  }       
+
+  limpiarCamposFormulario(){
+    this.estiloInput="";
+    this.correoInput="";
+  }
+
+  asignacionEstiloSegunEntrada(){
 
     if(this.estiloInput==="Rock"){
       this.temporalEstilo = 1;
@@ -138,14 +160,7 @@ export class EncuestaComponent {
 
     this.newEncuesta.correo = this.correoInput;
     this.newEncuesta.estilo = this.temporalEstilo;
-
-    this.callPostEncuesta();
-
-    this.callUpdateVotoEstilo();
-
-    this.callToEncuestaEstiloEntity();
-        
-  }       
+  }
 
 }
 

@@ -37,6 +37,7 @@
     --grey-principal-color: #dce0d8;
     --grey-dark-secondary-color: #848682;
     --black-color: #000000;
+    --alert: red;
 
     --titulo-font: 'OpenSans-SemiBold';
     --titulo-size: 18px;
@@ -46,5 +47,5 @@
 }
 
 body {
-    background-color: var(--grey-principal-color);   
+    background-color: var(--blue-color-10percent);   
 }

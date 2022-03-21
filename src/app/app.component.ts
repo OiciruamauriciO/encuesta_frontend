@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MenuComponent } from './shared/components/menu/menu.component';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild(MenuComponent) trigger: MenuComponent | undefined;
+  
   title = 'appEncuesta';
 
+  toMenu (){
+    if(this.trigger!=undefined){
+      this.trigger.openMenu();
+    }
+  }
 }

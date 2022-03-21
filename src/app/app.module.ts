@@ -8,6 +8,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { BotonRegresarComponent } from './shared/components/boton-regresar/boton-regresar.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from "@angular/forms";
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     HighchartsChartModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
