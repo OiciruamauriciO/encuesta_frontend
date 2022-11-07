@@ -14,6 +14,8 @@
     <li>npm install --save highcharts-angular</li>
     <li>npm i bootstrap-icons</li>
     <li>npm install jquery</li>
+    <li><i>Si no reconoce angular en el visual studio code, o en el cmd, agregar la ruta del npm en AppData/Roaming si usa windows, tanto en variabels de usuario y de sistema en Editar las Variables de Entorno. </i></li>
+    <li><i>Otro inconveniente, que pudieras tener, es que la ejecución de scripts esté deshabilitada en el sistema operativo windows que usas, para solucionar esto, abre power shell como administrador y escribe Set-ExecutionPolicy Unrestricted más Enter</i></li>    
   </ul>
   
 <h2>Iniciar frontend</h2> 
